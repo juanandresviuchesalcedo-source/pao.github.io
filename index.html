@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor - Feliz Navidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0b1e 0%, #1a0b2e 50%, #0c0b1e 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Fondo galáctico mejorado */
+        .galaxy-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .galaxy-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.9) 15%,
+                rgba(255, 255, 255, 0.7) 30%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0.1) 70%,
+                transparent 90%);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: centerGlow 8s ease-in-out infinite;
+            box-shadow: 
+                0 0 150px rgba(255, 255, 255, 0.6),
+                0 0 250px rgba(186, 85, 211, 0.4);
+        }
+
+        @keyframes centerGlow {
+            0%, 100% { 
+                opacity: 0.8; 
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 
+                    0 0 150px rgba(255, 255, 255, 0.6),
+                    0 0 250px rgba(186, 85, 211, 0.4);
+            }
+            50% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1.05);
+                box-shadow: 
+                    0 0 180px rgba(255, 255, 255, 0.8),
+                    0 0 300px rgba(186, 85, 211, 0.6);
+            }
+        }
+
+        .galaxy-nebula {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(186, 85, 211, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(75, 0, 130, 0.4) 0%, transparent 50%);
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: nebulaFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes nebulaFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(2%, 1%) scale(1.02); }
+            66% { transform: translate(-1%, 2%) scale(0.98); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.3);
+            font-size: 20px;
+            animation: floatUp 15s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Pantalla de inicio mejorada */
+        #start-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .love-icon {
+            color: #ff6b9d;
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: pulseLove 2s infinite;
+            text-shadow: 
+                0 0 30px #ff6b9d,
+                0 0 60px rgba(255, 107, 157, 0.5);
+        }
+
+        @keyframes pulseLove {
+            0%, 100% { 
+                transform: scale(1); 
+                text-shadow: 
+                    0 0 30px #ff6b9d,
+                    0 0 60px rgba(255, 107, 157, 0.5);
+            }
+            50% { 
+                transform: scale(1.1); 
+                text-shadow: 
+                    0 0 40px #ff6b9d,
+                    0 0 80px rgba(255, 107, 157, 0.7);
+            }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4, #ff9a9e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                filter: brightness(1);
+            }
+            50% { 
+                background-position: 100% 50%;
+                filter: brightness(1.2);
+            }
+        }
+
+        .start-message {
+            font-size: 1.2rem;
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            background: rgba(20, 10, 40, 0.6);
+            padding: 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(138, 43, 226, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .start-message::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                #ff9a9e, #fad0c4, #a18cd1, #fad0c4, #ff9a9e);
+            border-radius: 27px;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            border: none;
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 10px 30px rgba(255, 154, 158, 0.4),
+                0 0 20px rgba(255, 154, 158, 0.3);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn-start::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: 0.5s;
+        }
+
+        .btn-start:hover::before {
+            left: 100%;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(255, 154, 158, 0.6),
+                0 0 30px rgba(255, 154, 158, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Álbum de fotos */
+        #photo-album {
+            display: none;
+            min-height: 100vh;
+            padding-top: 30px;
+        }
+
+        .album-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { 
+                opacity: 0; 
+                transform: translateY(-30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .album-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .photo-counter {
+            font-size: 1.1rem;
+            background: rgba(20, 10, 40, 0.5);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Contenedor de fotos con movimiento suave */
+        .photos-container {
+            position: relative;
+            width: 100%;
+            min-height: calc(100vh - 150px);
+            overflow: hidden;
+        }
+
+        .photo {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(255, 154, 158, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            transform-origin: center;
+            will-change: transform, left, top;
+        }
+
+        .photo:hover {
+            transform: scale(1.15) rotate(3deg);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(255, 154, 158, 0.6),
+                0 0 60px rgba(255, 255, 255, 0.2);
+            z-index: 100;
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-frame {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Mensaje mejorado */
+        .photo-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, 
+                rgba(255, 154, 158, 0.98), 
+                rgba(250, 208, 196, 0.98));
+            color: #333;
+            padding: 30px 40px;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            z-index: 1000;
+            display: none;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 50px rgba(255, 154, 158, 0.4);
+            animation: messagePopUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        @keyframes messagePopUp {
+            from { 
+                opacity: 0; 
+                transform: translate(-50%, -50%) scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1); 
+            }
+        }
+
+        .message-content {
+            padding: 10px;
+        }
+
+        .close-message {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: #333;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-message:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: rotate(90deg);
+        }
+
+        /* Navegación mejorada */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .control-btn {
+            background: rgba(255, 154, 158, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(255, 154, 158, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 154, 158, 0.5);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(255, 154, 158, 0.5);
+        }
+
+        /* Mensaje de carga */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0c0b1e 0%, #1a0b2e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 2000;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #ff9a9e;
+            border-right-color: #fad0c4;
+            border-bottom-color: #a18cd1;
+            animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            color: #ff9a9e;
+            animation: loadingPulse 2s infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .love-icon { font-size: 3.5rem; }
+            .album-title { font-size: 2.2rem; }
+            .photo { width: 130px; height: 130px; }
+            .start-message { 
+                font-size: 1rem; 
+                padding: 20px;
+                margin: 0 15px;
+            }
+            .controls { 
+                bottom: 20px; 
+                right: 20px; 
+                gap: 12px;
+            }
+            .control-btn { 
+                width: 50px; 
+                height: 50px; 
+                font-size: 1.3rem;
+            }
+            .btn-start {
+                padding: 16px 40px;
+                font-size: 1.1rem;
+            }
+            .photo-message {
+                max-width: 85%;
+                padding: 20px 25px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .photo { width: 110px; height: 110px; }
+            .galaxy-center { width: 180px; height: 180px; }
+            .btn-start { 
+                padding: 14px 30px; 
+                font-size: 1rem;
+            }
+            .photo-message {
+                font-size: 1rem;
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo galáctico mejorado -->
+    <div class="galaxy-background">
+        <div class="galaxy-center"></div>
+        <div class="galaxy-nebula"></div>
+        <div class="floating-hearts" id="floating-hearts"></div>
+    </div>
+
+    <!-- Pantalla de inicio -->
+    <div id="start-screen" class="container">
+        <div class="love-icon">💕</div>
+        <h1>Para La Mujer Que Hace Mi Vida Mucho Mas feliz</h1>
+        <div class="start-message">
+            <p style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 500; color: #ff9a9e;">Mi vida, mi bebé hermosa,</p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.7;">
+                Quise hacer este detalle con mucha calma y con mucho cariño, juntando algunas fotos tuyas que para mí tienen un significado especial. En cada una de ellas veo lo linda que eres, no solo por fuera, sino por la forma tan bonita que tienes de ser y de existir. Cada foto guarda un momento, una mirada, una sonrisa tuya que a mí siempre me hace sentir bien.
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.7;">
+                Detrás de cada imagen hay un sentimiento real, algo que nace de mi corazón y que a veces no sé decir en persona, pero que sí siento cada vez que te veo o pienso en ti. Por eso te pido que toques cada foto con calma, que las mires despacio y leas cada mensaje sabiendo que todo lo escribí pensando solo en ti.
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.7;">
+                Quiero que este regalo te haga sonreír, que te sientas querida, cuidada y valorada, porque eso es lo que eres para mí. No hay nada aquí hecho al azar; cada detalle lo hice con cariño, pensando en lo mucho que significas en mi vida.
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.7;">
+                Hoy quiero desearte una muy feliz Navidad, mi amor. Aunque no pueda estar contigo en este momento como me gustaría, quiero que sientas mi presencia y mi cariño en cada palabra y en cada imagen. Todo esto es una pequeña forma de decirte lo importante que eres para mí.
+            </p>
+            
+            <p style="margin-bottom: 15px; line-height: 1.7;">
+                Te quiero mucho, más de lo que a veces sé expresar.<br>
+                Eres y siempre serás mi bebé hermosa.
+            </p>
+            
+            <p style="text-align: right; margin-top: 25px; font-weight: 500; color: #ff9a9e;">
+                Con todo el amor de mi corazón,<br>
+                <span style="font-family: 'Dancing Script', cursive; font-size: 1.5rem;">Tu novio</span>
+            </p>
+        </div>
+        <button id="start-btn" class="btn-start">
+            <i class="fas fa-heart"></i> Descubrir Nuestro Amor <i class="fas fa-heart"></i>
+        </button>
+    </div>
+
+    <!-- Álbum de fotos -->
+    <div id="photo-album">
+        <div class="container">
+            <div class="album-header">
+                <h2 class="album-title">101 razones parar amar a mi chaparrita hermosa</h2>
+                <div class="photo-counter">cada foto que tengo parar verte cuando no estas a mi lado  ✨</div>
+            </div>
+            
+            <div class="photos-container" id="photos-container">
+                <!-- Las fotos se generarán aquí con JavaScript -->
+            </div>
+            
+            <!-- Mensaje que aparece al hacer clic en una foto -->
+            <div id="photo-message" class="photo-message">
+                <button id="close-message" class="close-message">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="message-text" class="message-content"></div>
+            </div>
+            
+            <!-- Controles -->
+            <div class="controls">
+                <button id="pause-btn" class="control-btn" title="Pausar movimiento">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button id="shuffle-btn" class="control-btn" title="Mezclar fotos">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="home-btn" class="control-btn" title="Volver al inicio">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de carga -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Preparando nuestro mundo de amor...</div>
+    </div>
+
+    <script>
+        // Elementos del DOM
+        const startScreen = document.getElementById('start-screen');
+        const photoAlbum = document.getElementById('photo-album');
+        const startBtn = document.getElementById('start-btn');
+        const photosContainer = document.getElementById('photos-container');
+        const photoMessage = document.getElementById('photo-message');
+        const messageText = document.getElementById('message-text');
+        const closeMessageBtn = document.getElementById('close-message');
+        const pauseBtn = document.getElementById('pause-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const homeBtn = document.getElementById('home-btn');
+        const loadingScreen = document.getElementById('loading');
+        const floatingHearts = document.getElementById('floating-hearts');
+
+        // Variables para animación suave
+        let photos = [];
+        let isPaused = false;
+        let animationId = null;
+        let messageTimeout = null;
+        let particles = [];
+        let lastTime = 0;
+
+        // Mensajes completos personalizados (1-101)
+        const messages = [
+            "Me gustas de una manera muy bonita, de esas que nacen sin esfuerzo y se quedan en el corazón.",
+            "Tenerte en mi vida es algo que valoro más de lo que imaginas, porque eres alguien muy especial para mí.",
+            "Cada vez que te veo o pienso en ti, me doy cuenta de lo mucho que significas para mí.",
+            "Tú ocupas un lugar muy lindo en mi corazón, uno que nadie más podría ocupar.",
+            "Me importas de una forma sincera, tranquila y real, de esas que no se van con el tiempo.",
+            
+            "Quererte es algo que me nace, no es una obligación ni un esfuerzo, es algo natural.",
+            "Eres una persona que quiero cuidar, respetar y valorar siempre.",
+            "Tenerte cerca hace que muchas cosas se sientan mejor.",
+            "Tú eres alguien que suma cosas bonitas a mi vida.",
+            "Mi cariño por ti es real y viene del corazón.",
+            
+            "Me gusta la forma en que eres, sin tener que cambiar nada.",
+            "Contigo quiero cosas lindas, tranquilas y sinceras.",
+            "Eres alguien que quiero en mi vida, hoy y siempre.",
+            "Tenerte es una de las cosas bonitas que agradezco.",
+            "Me importas más de lo que a veces sé expresar con palabras.",
+            
+            "Mi corazón se siente bien cuando pienso en ti.",
+            "Eres una persona muy valiosa para mí.",
+            "Quererte es fácil, porque eres alguien increíble.",
+            "Tenerte cerca me da calma.",
+            "Tú eres alguien que quiero cuidar con el corazón.",
+            
+            "Mi cariño por ti no es pequeño, es sincero y constante.",
+            "Me gusta todo lo bonito que transmites.",
+            "Eres alguien que quiero para largo.",
+            "Contigo todo se siente más bonito.",
+            "Mi forma de quererte es real y honesta.",
+            
+            "Tenerte en mi vida es algo que no doy por sentado.",
+            "Tú eres alguien que ocupa un lugar muy especial en mí.",
+            "Me encanta compartir momentos contigo.",
+            "Mi corazón siempre te elige.",
+            "Eres alguien que quiero cuidar siempre.",
+            
+            "Quererte es una de las cosas más bonitas que siento.",
+            "Tú haces que mis días se sientan mejor.",
+            "Mi cariño por ti crece con el tiempo.",
+            "Eres alguien que quiero con calma y amor.",
+            "Tenerte cerca me hace bien.",
+            
+            "Me importas de una forma profunda y sincera.",
+            "Tú eres alguien muy importante para mí.",
+            "Contigo quiero seguir compartiendo momentos.",
+            "Mi corazón se siente tranquilo contigo.",
+            "Eres alguien que quiero de verdad.",
+            
+            "Quererte es algo que siento sin pensarlo demasiado.",
+            "Tú eres una persona muy especial para mí.",
+            "Tenerte en mi vida es algo que valoro mucho.",
+            "Mi cariño por ti es constante y sincero.",
+            "Eres alguien que quiero cuidar y proteger.",
+            
+            "Me gusta la forma en que te quiero.",
+            "Tú haces que muchas cosas tengan sentido.",
+            "Mi corazón siempre piensa en ti.",
+            "Eres alguien que quiero con todo el corazón.",
+            "Tenerte es algo muy bonito.",
+            
+            "Mi cariño por ti es honesto y real.",
+            "Tú eres alguien que quiero en mi futuro.",
+            "Quererte es algo que hago con el corazón abierto.",
+            "Me importas más de lo que imaginas.",
+            "Eres alguien que quiero cuidar siempre.",
+            
+            "Tenerte cerca me da paz.",
+            "Mi corazón te tiene un cariño muy grande.",
+            "Tú eres alguien que hace mi vida más bonita.",
+            "Quererte es algo que se siente bien.",
+            "Eres alguien que quiero mucho.",
+            
+            "Mi cariño por ti es profundo y sincero.",
+            "Tenerte en mi vida es algo que agradezco.",
+            "Tú eres alguien que ocupa un lugar muy bonito en mí.",
+            "Me gusta pensar en todo lo que compartimos.",
+            "Quererte es algo que me nace del corazón.",
+            
+            "Tú eres alguien que quiero cuidar con amor.",
+            "Mi corazón se siente bien cuando estás presente.",
+            "Eres y siempre serás mi bebé. No importa cuántos años cumplas, para mí siempre vas a ser esa persona que quiero cuidar, proteger y querer bonito. Te quiero muchísimo, mi bebé bella 🤍",
+            "Tenerte es una de las cosas más bonitas que siento.",
+            "Eres alguien que quiero para siempre.",
+            
+            "Mi cariño por ti no cambia con el tiempo.",
+            "Tú eres alguien que me importa de verdad.",
+            "Quererte es algo sincero y real.",
+            "Tenerte cerca es algo que valoro.",
+            "Eres alguien que quiero con todo mi corazón.",
+            
+            "Mi corazón siempre te piensa.",
+            "Tú haces que mi vida tenga más luz.",
+            "Quererte es algo que se siente natural.",
+            "Eres alguien que quiero cuidar siempre.",
+            "Tenerte es algo muy especial para mí.",
+            
+            "Mi cariño por ti es grande y verdadero.",
+            "Tú eres alguien que quiero en mi vida.",
+            "Quererte es una de las cosas más bonitas que siento.",
+            "Mi corazón se siente tranquilo contigo.",
+            "Eres alguien que quiero para largo.",
+            
+            "Tenerte cerca me hace sentir bien.",
+            "Mi cariño por ti es sincero.",
+            "Tú eres alguien que quiero cuidar y valorar.",
+            "Quererte es algo que hago con el corazón.",
+            "Tenerte es algo que agradezco mucho.",
+            
+            "Mi corazón te quiere de una forma muy bonita.",
+            "Tú eres alguien que significa mucho para mí.",
+            "Quererte es algo que siento todos los días.",
+            "Tenerte cerca me da calma.",
+            "Eres alguien que quiero con sinceridad.",
+            
+            "Mi cariño por ti es real y constante.",
+            "Tú eres alguien que quiero cuidar siempre.",
+            "Quererte es algo que me hace feliz.",
+            "Tenerte en mi vida es algo muy bonito.",
+            "Mi corazón siempre va a quererte bonito.",
+            "Tú eres y siempre serás alguien muy especial para mí."
+        ];
+
+        // URLs de tus 101 fotos
+        const photoURLs = [];
+        for (let i = 1; i <= 101; i++) {
+            photoURLs.push(`fotos/foto${i}.jpg`);
+        }
+
+        // Inicialización
+        window.addEventListener('DOMContentLoaded', () => {
+            // Crear corazones flotantes
+            createFloatingHearts();
+            
+            // Ocultar pantalla de carga
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1500);
+            
+            // Precargar primeras imágenes
+            preloadImages();
+        });
+
+        // Crear corazones flotantes
+        function createFloatingHearts() {
+            floatingHearts.innerHTML = '';
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤';
+                
+                // Posición aleatoria
+                heart.style.left = `${Math.random() * 100}%`;
+                
+                // Tamaño aleatorio
+                const size = 15 + Math.random() * 20;
+                heart.style.fontSize = `${size}px`;
+                
+                // Retraso y duración aleatorios
+                const delay = Math.random() * 10;
+                const duration = 10 + Math.random() * 10;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                floatingHearts.appendChild(heart);
+            }
+        }
+
+        // Botón para comenzar
+        startBtn.addEventListener('click', () => {
+            startScreen.style.display = 'none';
+            photoAlbum.style.display = 'block';
+            createPhotos();
+        });
+
+        // Crear fotos con movimiento suave
+        function createPhotos() {
+            photosContainer.innerHTML = '';
+            photos = [];
+            particles = [];
+            
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            
+            const containerWidth = photosContainer.offsetWidth;
+            const containerHeight = photosContainer.offsetHeight;
+            const centerX = containerWidth / 2;
+            const centerY = containerHeight / 2;
+            
+            // Crear grupos de fotos en órbitas concéntricas
+            const orbits = [
+                { radius: 200, count: 12, speed: 0.3 },
+                { radius: 320, count: 18, speed: 0.25 },
+                { radius: 440, count: 24, speed: 0.2 },
+                { radius: 560, count: 28, speed: 0.15 },
+                { radius: 680, count: 19, speed: 0.1 }
+            ];
+            
+            let photoIndex = 0;
+            
+            orbits.forEach((orbit, orbitIndex) => {
+                const photosInOrbit = Math.min(orbit.count, 101 - photoIndex);
+                
+                for (let i = 0; i < photosInOrbit; i++) {
+                    if (photoIndex >= 101) break;
+                    
+                    const photo = document.createElement('div');
+                    photo.className = 'photo';
+                    photo.dataset.index = photoIndex;
+                    photo.dataset.message = messages[photoIndex];
+                    
+                    // Crear frame decorativo
+                    const frame = document.createElement('div');
+                    frame.className = 'photo-frame';
+                    photo.appendChild(frame);
+                    
+                    // Crear imagen
+                    const img = new Image();
+                    img.src = photoURLs[photoIndex];
+                    img.alt = `Nuestro momento ${photoIndex + 1}`;
+                    img.onerror = function() {
+                        this.src = 'https://picsum.photos/300/300?random=' + (photoIndex + 100);
+                    };
+                    
+                    photo.appendChild(img);
+                    photosContainer.appendChild(photo);
+                    photos.push(photo);
+                    
+                    // Calcular posición inicial en la órbita
+                    const angle = (i / photosInOrbit) * Math.PI * 2;
+                    const baseX = centerX + Math.cos(angle) * orbit.radius - 80;
+                    const baseY = centerY + Math.sin(angle) * orbit.radius - 80;
+                    
+                    photo.style.left = `${baseX}px`;
+                    photo.style.top = `${baseY}px`;
+                    
+                    // Guardar datos para animación suave
+                    particles.push({
+                        element: photo,
+                        baseX: baseX,
+                        baseY: baseY,
+                        currentX: baseX,
+                        currentY: baseY,
+                        angle: angle,
+                        orbitRadius: orbit.radius,
+                        speed: orbit.speed,
+                        offsetX: 0,
+                        offsetY: 0,
+                        targetOffsetX: 0,
+                        targetOffsetY: 0,
+                        hue: 330 + orbitIndex * 20,
+                        scale: 0.9 + orbitIndex * 0.03
+                    });
+                    
+                    // Evento al hacer clic
+                    photo.addEventListener('click', () => {
+                        showMessage(photo.dataset.message);
+                        createHeartEffect(baseX + 80, baseY + 80);
+                    });
+                    
+                    photoIndex++;
+                }
+            });
+            
+            // Iniciar animación suave
+            if (!isPaused) {
+                lastTime = performance.now();
+                animationId = requestAnimationFrame(animatePhotos);
+            }
+        }
+
+        // Animación suave de fotos
+        function animatePhotos(currentTime) {
+            if (isPaused) return;
+            
+            const deltaTime = (currentTime - lastTime) / 1000;
+            lastTime = currentTime;
+            
+            const centerX = photosContainer.offsetWidth / 2;
+            const centerY = photosContainer.offsetHeight / 2;
+            
+            particles.forEach(particle => {
+                // Actualizar ángulo para movimiento orbital
+                particle.angle += particle.speed * deltaTime;
+                
+                // Calcular posición base en órbita
+                const targetBaseX = centerX + Math.cos(particle.angle) * particle.orbitRadius - 80;
+                const targetBaseY = centerY + Math.sin(particle.angle) * particle.orbitRadius - 80;
+                
+                // Suavizar movimiento base
+                particle.baseX += (targetBaseX - particle.baseX) * 0.1;
+                particle.baseY += (targetBaseY - particle.baseY) * 0.1;
+                
+                // Agregar movimiento suave aleatorio
+                if (Math.random() < 0.01) {
+                    particle.targetOffsetX = (Math.random() - 0.5) * 40;
+                    particle.targetOffsetY = (Math.random() - 0.5) * 40;
+                }
+                
+                // Suavizar offset
+                particle.offsetX += (particle.targetOffsetX - particle.offsetX) * 0.05;
+                particle.offsetY += (particle.targetOffsetY - particle.offsetY) * 0.05;
+                
+                // Calcular posición final
+                particle.currentX = particle.baseX + particle.offsetX;
+                particle.currentY = particle.baseY + particle.offsetY;
+                
+                // Aplicar posición con transición CSS para suavidad
+                particle.element.style.left = `${particle.currentX}px`;
+                particle.element.style.top = `${particle.currentY}px`;
+                
+                // Efecto de escala sutil
+                const distanceToCenter = Math.sqrt(
+                    Math.pow(particle.currentX + 80 - centerX, 2) + 
+                    Math.pow(particle.currentY + 80 - centerY, 2)
+                );
+                const maxDistance = Math.max(centerX, centerY);
+                const scale = 0.8 + (0.3 * (1 - distanceToCenter / maxDistance));
+                particle.element.style.transform = `scale(${scale})`;
+                
+                // Color de borde basado en posición
+                const hue = particle.hue + (particle.angle * 10);
+                particle.element.style.borderColor = `hsla(${hue}, 70%, 70%, 0.4)`;
+                particle.element.style.boxShadow = 
+                    `0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px hsla(${hue}, 70%, 70%, 0.3)`;
+            });
+            
+            animationId = requestAnimationFrame(animatePhotos);
+        }
+
+        // Crear efecto de corazones al hacer clic
+        function createHeartEffect(x, y) {
+            for (let i = 0; i < 5; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.style.position = 'fixed';
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+                heart.style.color = '#ff6b9d';
+                heart.style.fontSize = '20px';
+                heart.style.zIndex = '1000';
+                heart.style.pointerEvents = 'none';
+                heart.style.opacity = '0.8';
+                
+                document.body.appendChild(heart);
+                
+                // Animación
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 2 + Math.random() * 3;
+                const vx = Math.cos(angle) * speed;
+                const vy = Math.sin(angle) * speed - 2;
+                
+                let life = 50;
+                
+                function animateHeart() {
+                    if (life <= 0) {
+                        document.body.removeChild(heart);
+                        return;
+                    }
+                    
+                    const rect = heart.getBoundingClientRect();
+                    heart.style.left = `${rect.left + vx}px`;
+                    heart.style.top = `${rect.top + vy}px`;
+                    heart.style.opacity = life / 50;
+                    
+                    life--;
+                    requestAnimationFrame(animateHeart);
+                }
+                
+                animateHeart();
+            }
+        }
+
+        // Mostrar mensaje (centrado en pantalla)
+        function showMessage(message) {
+            if (messageTimeout) clearTimeout(messageTimeout);
+            
+            messageText.textContent = message;
+            photoMessage.style.display = 'block';
+            
+            messageTimeout = setTimeout(() => {
+                photoMessage.style.display = 'none';
+            }, 7000);
+        }
+
+        // Cerrar mensaje
+        closeMessageBtn.addEventListener('click', () => {
+            photoMessage.style.display = 'none';
+            if (messageTimeout) clearTimeout(messageTimeout);
+        });
+
+        // Pausar/reanudar
+        pauseBtn.addEventListener('click', () => {
+            isPaused = !isPaused;
+            
+            if (isPaused) {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+                pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                pauseBtn.title = 'Reanudar movimiento';
+            } else {
+                pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                pauseBtn.title = 'Pausar movimiento';
+                lastTime = performance.now();
+                animationId = requestAnimationFrame(animatePhotos);
+            }
+        });
+
+        // Mezclar fotos
+        shuffleBtn.addEventListener('click', () => {
+            particles.forEach(particle => {
+                // Nueva órbita aleatoria
+                particle.orbitRadius = 200 + Math.random() * 500;
+                particle.speed = 0.1 + Math.random() * 0.3;
+                particle.hue = 300 + Math.random() * 60;
+                
+                // Nuevo ángulo
+                particle.angle = Math.random() * Math.PI * 2;
+            });
+        });
+
+        // Volver al inicio
+        homeBtn.addEventListener('click', () => {
+            photoAlbum.style.display = 'none';
+            startScreen.style.display = 'flex';
+            
+            isPaused = false;
+            pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        });
+
+        // Precargar imágenes
+        function preloadImages() {
+            const toPreload = Math.min(30, photoURLs.length);
+            for (let i = 0; i < toPreload; i++) {
+                const img = new Image();
+                img.src = photoURLs[i];
+            }
+        }
+
+        // Redimensionar
+        window.addEventListener('resize', () => {
+            if (photos.length > 0) {
+                createPhotos();
+            }
+        });
+    </script>
+</body>
+</html>
